@@ -60,7 +60,7 @@
               <p class="w-32 text-black-50">
                 {{ $strings.LabelBitrate }}
               </p>
-              <p>{{ $bytesPretty(audioFile.bitRate || 0, 0) }}</p>
+              <p>{{ $bitratePretty(audioFile.bitRate || 0, 0) }}</p>
             </div>
             <div class="flex mb-1">
               <p class="w-32 text-black-50">{{ $strings.LabelTimeBase }}</p>

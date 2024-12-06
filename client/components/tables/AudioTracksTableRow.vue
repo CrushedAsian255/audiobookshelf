@@ -8,7 +8,7 @@
       {{ track.audioFile.codec || '' }}
     </td>
     <td v-if="!showFullPath" class="hidden xl:table-cell">
-      {{ $bytesPretty(track.audioFile.bitRate || 0, 0) }}
+      {{ $bitratePretty(track.audioFile.bitRate || 0, 0) }}
     </td>
     <td class="hidden md:table-cell">
       {{ $bytesPretty(track.metadata.size) }}
