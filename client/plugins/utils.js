@@ -13,9 +13,20 @@ Vue.prototype.$bytesPretty = (bytes, decimals = 2) => {
   }
   const k = 1000
   const dm = decimals < 0 ? 0 : decimals
-  const sizes = ['Bytes', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB']
+  const sizes = ['Bytes', 'kB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB']
   const i = Math.floor(Math.log(bytes) / Math.log(k))
   return parseFloat((bytes / Math.pow(k, i)).toFixed(dm)) + ' ' + sizes[i]
+}
+
+Vue.prototype.$bitratePretty = (bitrate, decimals = 2) => {
+  if (isNaN(bitrate) || bitrate == 0) {
+    return '0 bits/s'
+  }
+  const k = 1000
+  const dm = decimals < 0 ? 0 : decimals
+  const sizes = ['bits/s', 'kbps', 'Mbps', 'Gbps', 'Tbps', 'Pbps', 'Ebps', 'Zbps', 'Ybps']
+  const i = Math.floor(Math.log(bitrate) / Math.log(k))
+  return parseFloat((bitrate / Math.pow(k, i)).toFixed(dm)) + ' ' + sizes[i]
 }
 
 Vue.prototype.$elapsedPretty = (seconds, useFullNames = false, useMilliseconds = false) => {
